@@ -1,0 +1,18 @@
+{% load static %}
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-light mt-2">
+   <section class="container">
+       <div class="container-fluid">
+           <div class="row mt-2"> <a href="{% url 'admon:user_profile' %}">Perfil</a>  </div>
+           <div class="row mt-2"> <a href=" {% url 'home:pass_change' %}"> Cambiar Constraseña</a>  </div>
+           <div class="row mt-2"> <a href=" {% url 'home:logout' %} "> Salir del sistema</a> </div>            
+           <div class="row mt-2"> 
+               <a class="dropdown-item bg-gray" style="color: white; font-size: 12px;" href="#">
+                   Sú último acceso fue <br> {{ request.user.last_login }}    
+               </a>
+           </div>
+           <div class="row"></div>
+       </div>
+   </section>
+</aside>
+ <!-- /.control-sidebar -->

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Responsivo</title>
+
+    <!-- Agregar los estilos de Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <h3>Columna 1</h3>
+                <form>
+                    <div class="mb-3">
+                      <label for="nombre" class="form-label">Nombre</label>
+                      <input type="text" class="form-control" id="nombre">
+                    </div>
+                    <div class="mb-3">
+                      <label for="email" class="form-label">Email</label>
+                      <input type="email" class="form-control" id="email">
+                    </div>
+                </form>           
+            </div>
+            
+            <div class="col">
+                <h3>Columna 2</h3>
+                <form>
+                    <div class="mb-3">
+                      <label for="telefono" class="form-label">Teléfono</label>
+                      <input type="text" class="form-control" id="telefono">
+                    </div>
+                </form>           
+            </div>
+            
+            <div class="col">
+                <h3>Columna 3</h3>
+                <form>
+                    <div class="mb-3">
+                      <label for="ciudad" class="form-label">Ciudad</label>
+                      <select class="form-select" id="ciudad">
+                        <option value="">Selecciona una ciudad</option>
+                        <option value="madrid">Madrid</option>
+                        <option value="barcelona">Barcelona</option>
+                        <option value="valencia">Valencia</option>
+                      </select>
+                    </div>
+                </form>           
+            </div>
+            
+            <div class="col">
+                <h3>Columna 4</h3>
+                <form>
+                    <div class="mb-3">
+                      <label for="mensaje" class="form-label">Mensaje</label>
+                      <textarea class="form-control" id="mensaje" rows="3"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>            
+            </div>
+        </div>
+    </div>
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

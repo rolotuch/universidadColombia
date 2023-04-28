@@ -1,0 +1,38 @@
+{% extends 'esquema/body.html' %}
+{% block content %}
+<div class="card mx-auto" style="max-width:750px">
+    <div class="row no-gutters g-0">
+        <div class="col-md-4 bg-info" style="max-width:10px;">
+        </div>
+        <div class="col-md">
+            <div class="card-header bg-info">
+                <h4>{{ title }} {{object.get_short_name}}</h4>
+            </div>
+            <div class="card-body">
+                {% block detalle %}
+            
+                <div class="card-section">                   
+            
+                    {% block card_section %}
+            
+                    {% endblock card_section %}
+            
+                </div>
+            
+                {% endblock detalle %}
+            
+            </div>
+            <div class="card-footer text-center">
+                <a href="{{ volver }}" class="btn btn-success"> <span class="fa fa-undo"> </span> 
+                Regresar</a>                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+
+{% block js_page %}
+    
+{% endblock js_page %}
+    

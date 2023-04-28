@@ -1,0 +1,92 @@
+{% extends 'cruds/detalle.html' %}
+{% load widget_tweaks %}
+{% load static  %}
+{% block detalle %}
+    
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-12">
+          
+            <img src="{{object.get_avatar }}" width="15%" alt=""> 
+           
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <table id="table2" class="table table-bordered table-striped table-hover">    
+        <tbody>
+            <tr>
+                <td class="bg-gray"> <strong>Id: </strong> </td>
+                <td> {{ object.id }} </td>
+                <td class="bg-gray"><strong>Username: </strong></td>
+                <td> {{ object.username }} </td>
+            </tr>
+            <tr>
+                <td class="bg-gray"> <strong>Nombre: </strong> </td>
+                <td> {{ object.first_name }} </td>
+                <td class="bg-gray"><strong>Apellido: </strong></td>
+                <td> {{ object.last_name }} </td>
+            </tr>
+            <tr>
+                <td class="bg-gray"> <strong>Genero: </strong> </td>
+                <td> {{ object.get_genero_display }} </td>
+                <td class="bg-gray"><strong>Telefono: </strong></td>
+                <td> {{ object.telefono }} </td>
+            </tr>
+            <tr>                
+                <td class="bg-gray"><Strong>Email:</Strong>:</td>
+                <td>{{object.email}} </td>
+                <td class="bg-gray"><Strong>Activo:</Strong>:</td>
+                <td>{{object.is_active|yesno:"SI,No" }} </td>
+            </tr>
+            <tr>                
+                <td class="bg-gray"><Strong>Tiene Acceso a Administracion:</Strong></td>
+                <td>{{object.is_staff|yesno:"SI,No"}} </td> 
+                <td class="bg-gray align-middle"><Strong>Es Super Usuario:</Strong>:</td>
+                <td class="align-middle">{{object.is_superuser|yesno:"SI,No"}} </td>   
+            </tr>    
+            <tr>            
+                <td class="bg-gray align-middle"> <strong> Pertenece a los grupos: </strong>  </td>
+                <td class="align-middle">
+                    <ul class="vertical menu">
+                        {% for g in usuario.groups.all %}
+                            <li>
+                                {{ g }}
+                            </li>                    
+                        {% endfor %}
+                    </ul>    
+                </td>
+                <td class="bg-gray align-middle"><Strong>Ultimo Acceso:</Strong>:</td>
+                <td class="align-middle">{{object.last_login|date:"d/m/Y H:i:s" }} </td>
+            </tr>
+            <tr>
+                <td class="bg-gray align-middle"><Strong>Creado por:</Strong></td>
+                <td class="align-middle">{{object.u_c.username}} </td>
+                <td class="bg-gray align-middle"><Strong>Fecha de Alta:</Strong></td>
+                <td class="align-middle">{{object.f_c|date:"d/m/Y H:i:s"}} </td>    
+            </tr>
+            <tr>
+                <td class="bg-gray align-middle"><Strong>Ultima Actualizacion por:</Strong>:</td>
+                <td class="align-middle">{{object.u_m.username }} </td>
+                <td class="bg-gray align-middle"><Strong>Modificado el:</Strong>:</td>
+                <td class="align-middle">{{object.f_m|date:"d/m/Y H:i:s" }} </td>               
+            </tr>
+           
+        </tbody>    
+    </table>
+   
+   
+</div>   
+{% endblock detalle %}
+
+{% block js_page %}
+<script>
+    $(function () {
+       $("#table2").DataTable({
+         "responsive": true, "lengthChange": false, "autoWidth": false,
+         "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+       }).buttons().container().appendTo('#table_wrapper .col-md-6:eq(0)');
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,274 @@
+{% load static %}
+<aside class="main-sidebar bg-light-primary  elevation-4">
+  <!-- Brand Logo -->
+  <a href="{% url 'home:home' %}" class="brand-link">
+    <img src="{% static 'img/AdminLTELogo.png'%}"  alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> 
+    <span class="brand-text font-weight-light">UNIVERSIDAD </span>
+  </a>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar user (optional) -->
+    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <td></td>
+      <div class="image">
+        <img src="{% static 'img/user2-160x160.jpg'%}" class="img-circle elevation-2" alt="User Image">
+      </div>
+      <div class="info">
+        <a href="#" class="d-block">{{ user }}</a>
+      </div>
+    </div>
+
+    <!-- SidebarSearch Form -->
+    <!-- <div class="form-inline">
+      <div class="input-group" data-widget="sidebar-search">
+        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-sidebar">
+            <i class="fas fa-search fa-fw"></i>
+          </button>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+             with font-awesome or any other icon font library -->   
+            
+        <li class="nav-item bg-gray-light">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-copy"></i>
+            <p>
+              Administración
+              <i class="fas fa-angle-left right"></i>              
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{% url 'admon:user_list' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p">Usuarios</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item bg-gray-light">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-chart-pie"></i>
+            <p>
+              Gestión de Catalogos
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{% url 'geografico:pais_list' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Pais</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'geografico:depto_list' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Eepartamento</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'geografico:ciudad_list' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Ciudad</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{% url 'geografico:cono_list' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Conocimientos</p>
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="{% url 'geografico:form_list' %}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Formacion</p>
+              </a>
+            </li>
+            
+          </ul>
+        </li>
+        <li class="nav-item bg-gray-light">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-tree"></i>
+            <p>
+              Gestión de Citas
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <!-- <a href=" #" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Citas</p>
+              </a> -->
+            </li>
+            <li class="nav-item">
+              <a href="# " class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Calendario</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="../UI/buttons.html" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Buttons</p>
+              </a>
+            </li>
+            
+          </ul>
+        </li>
+        <li class="nav-item bg-gray-light">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-edit"></i>
+            <p>
+              Forms
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="../forms/general.html" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>General Elements</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="../forms/advanced.html" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Advanced Elements</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item bg-gray-light">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-table"></i>
+            <p>
+              Tables
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="../tables/simple.html" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Simple Tables</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="../tables/data.html" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>DataTables</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="../tables/jsgrid.html" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>jsGrid</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        
+        <li class="nav-item menu-open bg-gray-light">
+          <a href="#" class="nav-link active bg-warning">
+            <i class="nav-icon far fa-plus-square"></i>
+            <p>
+              Extras
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>
+                  Login & Register v1
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview bg-dark">
+                <li class="nav-item">
+                  <a href="../examples/login.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Login v1</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="../examples/register.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Register v1</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="../examples/forgot-password.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Forgot Password v1</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="../examples/recover-password.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Recover Password v1</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item bg-gray-light">
+              <a href="#" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>
+                  Login & Register v2
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview bg-dark">
+                <li class="nav-item">
+                  <a href="../examples/login-v2.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Login v2</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="../examples/register-v2.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Register v2</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="../examples/forgot-password-v2.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Forgot Password v2</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="../examples/recover-password-v2.html" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Recover Password v2</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+
+  
+
+</aside>

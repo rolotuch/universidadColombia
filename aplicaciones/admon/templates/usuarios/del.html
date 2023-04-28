@@ -1,0 +1,32 @@
+{% extends 'esquema/body.html' %}
+
+{% block content %}
+<form method="POST" class="form-inline">
+  {% csrf_token %}
+  <div class="card mx-auto" style="max-width: 750px;">
+    <div class="row no-gutters">
+      <div class="col">
+        <div class="card-header bg-info">
+          <h3 class="card-title">
+            <h4>{{ title }}</h4>
+        </div>
+        <div class="card-body">
+          <div class="text-xs font-weight-bold text-danger text-uppercase mb-2"> <B style="font-size: 12pt;"> ¿Desea
+            Eliminar el Registro </b> <b style="font-size: 12pt; color: orange;">{{obj.id}} {{ obj.get_short_name }} </b>
+            <i class="far fa-question-circle fa-2x text-info"></i>
+          </div>
+        </div>
+
+        <div class="card-footer text-center">
+          <button type="submit" class="btn btn-danger">Si, Eliminar <i class="far fa-question-circle"></i></button>
+          <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-success">No, Cancelar <span class="fa fa-undo"></span></a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</form>
+{% endblock %}
+{% block js_page %}
+{% endblock %}

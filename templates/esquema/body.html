@@ -1,0 +1,76 @@
+{% extends 'esquema/index.html' %}
+{% load static %}
+{% block head %}
+
+{% endblock head %}
+{% block body %}
+
+<body class="hold-transition sidebar-mini">
+  <!-- Site wrapper -->
+  <div class="wrapper">
+    <!-- Navbar HEADER-->
+    {% block header %}
+    {% include 'esquema/header.html' %}
+    {% endblock header %}
+    <!-- /.navbar -->
+    <!-- Main Sidebar Container -->
+    {% block sidebar %}
+    {% include 'esquema/sidebar.html' %}
+    {% endblock sidebar %}
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <section class="content-header badge-info">
+        <div class="container-fluid">
+          <div class="row mb-0 m-0 p-0">
+            {% block bienvenida %}
+            
+            {% endblock bienvenida %}
+            {% block link %}
+            
+            {% endblock link %}
+          </div>
+        </div><!-- /.container-fluid -->
+      </section>
+
+      <!-- Main content -->
+      <section class="content">
+        {% block content %}
+        {% endblock content %}
+      </section>
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    {% block footer %}
+    {% include 'esquema/footer.html' %}
+    {% endblock footer %}
+
+    {% block control-sidebar %}
+      {% include 'esquema/control-sidebar.html' %}
+    {% endblock control-sidebar %}
+   
+  </div>
+  <!-- ./wrapper -->
+  <script>
+    {% if messages %}
+      var html = '<p>';
+      {% for message in messages %}
+        html += '{{ message }}<br>';
+      {% endfor %}
+      html += '</p>';
+      Swal.fire({
+        title: 'info!',
+        html: html,
+        icon: 'info'
+      });
+    {% endif %}
+
+  </script>
+  
+  {% block js_page %}
+    
+  {% endblock js_page %}
+    
+</body>
+{% endblock %}

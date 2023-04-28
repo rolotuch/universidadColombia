@@ -1,0 +1,26 @@
+{% extends 'cruds/list.html' %}
+
+{% block table_head %}
+    <th align="center">ID</th>
+    <th align="center">Usuario</th>
+    <th align="center">Nombre</th>
+    <th align="center">Fecha Creación</th>
+    <th align="center">Fecha Actualización</th>
+    <th align="center">Estado</th>
+    <th align="center">Acciones</th>
+{% endblock table_head %}
+
+{% block table_body %}
+    <td align="center">{{ e.id }}</td>
+    <td>{{ e.username }}</td>
+    <td>{{ e.get_full_name }}</td>
+    <td align="center">{{ e.created_date|date:"d/m/Y" }}</td>
+    <td align="center">{{ e.modified_date|date:"d/m/Y" }}</td>
+    <td align="center">{{ e.is_active|yesno:"Activo,Inactivo" }}</td>
+    <td  align="center">
+        <a href="{% url 'admon:user_ver' e.id %}" class="btn btn-warning btn-circle btn-xs" role="button"><i
+            class="far fa-eye"> </i></a>
+        <a href="{% url 'admon:user_edit' e.id %}" class="btn btn-warning btn-circle btn-xs" role="button"><i
+            class="far fa-edit"> </i></a>        
+    </td>
+{% endblock table_body %}

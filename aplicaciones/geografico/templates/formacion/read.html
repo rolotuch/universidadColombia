@@ -1,0 +1,74 @@
+{% extends 'cruds/list.html' %}
+
+{% block table_head %}
+<th style="text-align: center;">ID</th>
+<th style="text-align: center;">Nombre</th>
+<th style="text-align: center;">Descripcioin</th>
+<th style="text-align: center;">Activo / Inactivo</th>
+<th style="text-align: center;">Acciones</th>
+
+{% endblock table_head %}
+
+{% block table_body %}
+<td style="text-align: center;">{{ e.id }}</td>
+
+<td>{{ e.nombre}}</td>
+<td>{{ e.descripcion}}</td>
+
+<td style="text-align: center;">
+  <div onclick="inactivar({{e.id}})">
+    {% if e.state %}
+    <button class="btn btn-outline-info btn-circle btn-xs">
+      <i class="far fa-thumbs-up text-primary"></i>
+    </button>
+    {% else %}
+    <button class="btn btn-outline-danger btn-circle btn-xs">
+      <i class="far fa-thumbs-down text-danger"></i>
+    </button>
+    {% endif %}
+  </div>
+</td>
+
+<td style="text-align: center;">
+  {% if e.state %}
+    <a href="{% url 'geografico:form_edit' e.id %}" class="btn btn-warning btn-circle btn-xs" role="button"><i
+      class="far fa-edit"> </i></a>    
+
+  {% else %}
+    <a href="#" class="btn btn-danger btn-circle btn-xs" role="button"><i class="fa fa-user-times" aria-hidden="true"></i></a>
+  {% endif %}
+</td>
+{% endblock table_body %}
+
+{% block js_page %}
+<script>
+  function inactivar(id)
+  {
+    var data = {id:id};
+    data = JSON.stringify(data);
+    var token = '{{csrf_token}}';
+    
+    $.ajax({
+      headers : {"X-CSRFToken": token},
+      type:"POST",
+      url:"/geografico/formacion/inactivar/"+id,
+      data: data,
+      success: function(response){
+        if(response==="OK")
+        {
+          location.reload(true);
+        }
+        else{
+          mensaje("Error Intentado Cambiar Estado");
+        }
+      },
+      error: function(jqXHR, textStatus, errorThrow){
+        console.log(textStatus, errorThrow);
+        mensaje(errorThrow,'red');
+        cerrar_modal();
+      }
+    });
+  }
+
+</script>
+{% endblock %}
